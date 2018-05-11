@@ -80,6 +80,7 @@ const writePost = (folder, file) => {
 const generateStaticContent = folder => {
   rm.sync(PUBLIC_PATH + '/' + folder)
   fs.readdir(__dirname + '/' + folder, '', (err, files) => {
+    if (! fs.existsSync(__dirname + '/' + folder)) return
     files.forEach(file => {
       writePost(folder, file)
     })
