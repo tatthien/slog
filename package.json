@@ -5,7 +5,8 @@
   "scripts": {
     "asset:dev": "gulp dev",
     "asset:build": "gulp build",
-    "build": "npm run asset:build && node generator.js"
+    "build": "npm run asset:build && node generator.js",
+    "server:start": "npm run build && node app.js"
   },
   "author": "Thien Nguyen",
   "license": "ISC",
