@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ title }} | Thien's notes</title>
+    <link rel="stylesheet" href="/assets/css/theme.css">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
+</head>
+
+<body class="{{ class.body }}">
+    <div class="wrap">
+        <header class="site-header">
+            <div class="container">
+                <div id="logo">
+                    <h2 class="site-name">Thien's notes</h2>
+                    <p class="site-description">write. share. learn.</p>
+                </div>
+                <div id="main-nav">
+                    <nav>
+                        <a href="/">Home</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div class="container primary {{ class.container }}">
+            {{{ content }}}
+        </div>
+        <footer class="site-footer">
+            <div class="container">
+                <p>Copyright © 2018 - present Thien Nguyen. Created with <a href="https://github.com/tatthien/snote" target="_blank" class="link">snote</a></p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

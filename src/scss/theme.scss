@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css?family=Cousine:400,400i,700,700i&subset=vietnamese');
+@import "reset";
+@import "variables";
+@import "mixins";
+
+/** GENERAL **/
+body {
+    font-family: $font--primary;
+    font-size: 16px;
+    color: $color--dark;
+}
+
+a {
+    color: $color--primary;
+    border-bottom: 1px solid $color--primary;
+    padding-bottom: 1px;
+    text-decoration: none;
+}
+
+.container {
+    width: $content-width;
+    margin: 0 auto;
+}
+
+.primary {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+/** SITE HEADER **/
+.site-header {
+    padding: 40px;
+    margin-bottom: 20px;
+    background-color: $color--dark;
+    color: #fff;
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .site-name {
+        margin-bottom: 5px;
+        font-weight: 700;
+        font-size: 1.5em;
+    }
+}
+
+/** SITE FOOTER **/
+.site-footer {
+    padding: 40px 0;
+    color: $color--grey;
+}
+
+#main-nav {
+    a {
+        margin-left: 10px;
+        color: #fff;
+        opacity: .8;
+        border-bottom: none;
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+/** HOME **/
+.home {
+    .post-list {
+        .year {
+            margin-bottom: 40px;
+        }
+        h1 {
+            font-weight: 700;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        p {
+            margin: 1em;
+        }
+        a {
+            border-bottom: 0;
+        }
+    }
+}
+
+/** SINGLE **/
+.single {
+    .container.post {
+        width: 700px;
+    }
+}
+
+.post {
+    &__title {
+        font-weight: 700;
+        font-size: 2em;
+    }
+    &__meta {
+        color: $color--grey;
+        margin: 10px 0;
+        span {
+            margin-right: 15px;
+        }
+        strong {
+            font-weight: 700;
+        }
+    }
+    &__content {
+        margin: 40px 0;
+        font-size: 1em;
+        @include line-height(1);
+        h1, h2, h3 {
+            font-weight: 700;
+        }
+        h1 {
+            font-size: 1.5em;
+        }
+        h2 {
+            font-size: 1.2em;
+        }
+        h3 {
+            font-size: 1.2em;
+        }
+        p {
+            margin: 1em 0;
+        }
+        strong {
+            font-weight: 700;
+        }
+        em {
+            font-style: italic;
+        }
+        p code {
+            background-color: $color--grey-light;
+            font-weight: 700;
+            padding: 0 5px;
+        }
+        pre {
+            padding: 10px;
+            border-radius: 5px;
+        }
+        ul {
+            margin-left: 20px;
+        }
+        ol {
+            margin-left: 35px;
+        }
+        ul li {
+            list-style: disc;
+        }
+        ol li {
+            list-style: decimal;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+        blockquote {
+            margin: 1em 0;
+            border-left: 2px solid $color--grey;
+            padding-left: 20px;
+        }
+    }
+}
