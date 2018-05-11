@@ -18,11 +18,16 @@ The letter `s` stands for **Static** and **Simple**. I just want to create a sim
 
 ## Development
 
-**Build assets**
+**Assets**
 
 ```
 npm run asset:dev
 yarn asset:dev
+```
+
+```
+npm run asset:build
+yarn asset:build
 ```
 
 **Preview**
