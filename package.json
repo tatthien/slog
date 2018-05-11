@@ -1,14 +1,13 @@
 {
-  "name": "notes",
+  "name": "snote",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A static site generator",
   "scripts": {
     "asset:dev": "gulp dev",
     "asset:build": "gulp build",
     "build": "npm run asset:build && node generator.js"
   },
-  "author": "",
+  "author": "Thien Nguyen",
   "license": "ISC",
   "dependencies": {
     "date-fns": "^1.29.0",
