@@ -15,9 +15,12 @@ const md = require('markdown-it')({
   } 
 })
 
+const PUBLIC_PATH = __dirname  + '/public'
+const TEMPLATE_PATH = __dirname + '/templates'
+
 // Template content
-let layoutTemplate = fs.readFileSync('templates/layout.html', 'utf-8')
-let singleTemplate = fs.readFileSync('templates/single.html', 'utf-8')
+let layoutTemplate = fs.readFileSync(TEMPLATE_PATH + '/layout.html', 'utf-8')
+let singleTemplate = fs.readFileSync(TEMPLATE_PATH + '/single.html', 'utf-8')
 
 /**
  * Format post object
@@ -53,7 +56,7 @@ const writePost = (folder, file) => {
       content: html
     })
 
-    let folderName = 'public/' + folder
+    let folderName = PUBLIC_PATH + '/' + folder
 
     // Create folder if it doesn't exist
     if (! fs.existsSync(folderName)) {
@@ -75,8 +78,8 @@ const writePost = (folder, file) => {
  * @param {String} folder 
  */
 const generateStaticContent = folder => {
-  rm.sync('public/' + folder)
-  fs.readdir(folder, '', (err, files) => {
+  rm.sync(PUBLIC_PATH + '/' + folder)
+  fs.readdir(__dirname + '/' + folder, '', (err, files) => {
     files.forEach(file => {
       writePost(folder, file)
     })

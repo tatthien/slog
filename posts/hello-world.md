@@ -1,3 +1,8 @@
+---
+title: Hello World
+published: 05/10/2018
+updated: 05/10/2018
+---
 # snote - a static site generator
 
 Why do I create this generator when the world has a lot of engine such as Hexo, Hugo, VuePress,...?

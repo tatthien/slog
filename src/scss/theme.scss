@@ -4,10 +4,15 @@
 @import "mixins";
 
 /** GENERAL **/
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: $font--primary;
     font-size: 16px;
     color: $color--dark;
+    line-height: 1.5;
 }
 
 a {
@@ -18,8 +23,12 @@ a {
 }
 
 .container {
-    width: $content-width;
+    max-width: $content-width;
     margin: 0 auto;
+    @media screen and (max-width: 800px){
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
 
 .primary {
@@ -33,6 +42,10 @@ a {
     margin-bottom: 20px;
     background-color: $color--dark;
     color: #fff;
+    @media screen and (max-width: 800px){
+        padding-left: 0;
+        padding-right: 0;
+    }
     .container {
         display: flex;
         justify-content: space-between;
@@ -97,9 +110,11 @@ a {
     }
     &__meta {
         color: $color--grey;
-        margin: 10px 0;
         span {
             margin-right: 15px;
+            @media screen and (max-width: 500px){
+                display: block;
+            }
         }
         strong {
             font-weight: 700;
@@ -136,8 +151,13 @@ a {
             padding: 0 5px;
         }
         pre {
+            margin: 1em 0;
             padding: 10px;
             border-radius: 5px;
+        }
+        ul, ol, h1, h2, h3 {
+            margin-top: 1em;
+            margin-bottom: 1em;
         }
         ul {
             margin-left: 20px;

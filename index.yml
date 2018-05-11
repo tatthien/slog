@@ -1,9 +1,4 @@
 posts:
   2018:
-    - title: HTML Format
-      slug: html-format
     - title: Hello World
-      slug: hello
-  2017:
-    - title: Hello
       slug: hello-world
