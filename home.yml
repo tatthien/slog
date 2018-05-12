@@ -1,0 +1,7 @@
+posts:
+  2018:
+    - title: Hello World
+      slug: hello-world
+  2017:
+    - title: A post from 2017
+      slug: a-post-from-2017

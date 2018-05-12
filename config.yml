@@ -1,0 +1,9 @@
+site_title: Slog
+site_desc: A static site generator
+footer: Copyright © 2018 - present Thien Nguyen. Created with <a href="https://github.com/tatthien/snote" target="_blank" class="link">snote</a>
+pages: 
+  - title: About
+    link: /pages/about.html
+  - title: Contact
+    link: /pages/contact.html
+date_format: MMM DD, YYYY

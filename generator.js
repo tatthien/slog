@@ -5,6 +5,8 @@ const formatDate = require('date-fns/format')
 const yaml = require('js-yaml')
 const rm = require('rimraf')
 const hljs = require('highlight.js')
+
+// Config markdown with highlight.js
 const md = require('markdown-it')({
   highlight (str, lang) {
     if (lang && hljs.getLanguage(lang)) {
@@ -23,14 +25,51 @@ let layoutTemplate = fs.readFileSync(TEMPLATE_PATH + '/layout.html', 'utf-8')
 let singleTemplate = fs.readFileSync(TEMPLATE_PATH + '/single.html', 'utf-8')
 
 /**
+ * Get site configuration
+ */
+const getConfig = () => {
+  try {
+    var config = yaml.safeLoad(fs.readFileSync(__dirname + '/config.yml'))
+  } catch (e) {
+    console.log(e)
+  }
+  return config
+}
+var config = getConfig()
+
+/**
+ * Get data for layout template
+ * 
+ * @param {Object} options 
+ */
+const getLayoutData = (options) => {
+  let layoutData = {
+    site_title: config.site_title,
+    site_desc: config.site_desc,
+    footer: config.footer,
+    pages: config.pages
+  }
+  return Object.assign(options, layoutData)
+}
+
+const formatPostDate = date => {
+  date = date.split('-')
+  return formatDate(new Date(
+    date[2],
+    date[1] - 1,
+    date[0]
+  ), config.date_format)
+}
+
+/**
  * Format post object
  * 
  * @param {Object} post 
  */
 const formatPost = post => {
   post.content = md.render(post.content)
-  post.data.published = formatDate(new Date(post.data.published), 'MMM DD, YYYY')
-  post.data.updated = formatDate(new Date(post.data.updated), 'MMM DD, YYYY')
+  post.data.published = formatPostDate(post.data.published)
+  post.data.updated = formatPostDate(post.data.updated)
   return post
 }
 
@@ -47,14 +86,14 @@ const writePost = (folder, file) => {
     let post = formatPost(matter(data))
     
     let html = mustache.render(singleTemplate, post)
-    html = mustache.render(layoutTemplate, {
+    html = mustache.render(layoutTemplate, getLayoutData({
       title: post.data.title,
       class: {
         body: 'home',
         container: 'post'
       },
       content: html
-    })
+    }))
 
     let folderName = PUBLIC_PATH + '/' + folder
 
@@ -91,33 +130,34 @@ const generateStaticContent = folder => {
  * Generate index.html
  */
 const generateIndex = () => {
-  // Read index.yml
+  // Read home.yml
   try {
-    var index = yaml.safeLoad(fs.readFileSync('index.yml', 'utf-8'))
+    var home = yaml.safeLoad(fs.readFileSync(__dirname + '/home.yml', 'utf-8'))
   } catch (e) {
     console.log(e)
   }
 
   let indexContent = ''
-  for (let key in index.posts) {
-    if (index.posts.hasOwnProperty(key)) {
-      let year = index.posts[key]
+  let posts = home.posts
+  for (let key in posts) {
+    if (posts.hasOwnProperty(key)) {
+      let year = posts[key]
       indexContent += '<div class="year"><h1>'+ key +'</h1>'
-      year.forEach((item, i) => {
-        indexContent += `<p>${++i}. <a href="/posts/${item.slug}.html">${item.title}</a></p>`
+      year.forEach((p, i) => {
+        indexContent += `<p>${++i}. <a href="/posts/${p.slug}.html">${p.title}</a></p>`
       })
       indexContent += '</div>'
     }
   }
 
-  let html = mustache.render(layoutTemplate, {
+  let html = mustache.render(layoutTemplate, getLayoutData({
     title: 'Home',
     class: {
       body: 'home',
       container: 'post-list'
     },
     content: indexContent
-  })
+  }))
 
   fs.writeFile('public/index.html', html, err => {
     if (err) throw err;

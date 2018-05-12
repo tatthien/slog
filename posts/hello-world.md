@@ -1,7 +1,7 @@
 ---
 title: Hello World
-published: 05/10/2018
-updated: 05/10/2018
+published: 10-05-2018
+updated: 10-05-2018
 ---
 # slog - a static site generator
 
