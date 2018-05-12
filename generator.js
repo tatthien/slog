@@ -1,9 +1,8 @@
-const fs = require('fs')
+const fs = require('fs-extra')
 const matter = require('gray-matter')
 const mustache = require('mustache')
 const formatDate = require('date-fns/format')
 const yaml = require('js-yaml')
-const rm = require('rimraf')
 const hljs = require('highlight.js')
 
 // Config markdown with highlight.js
@@ -117,7 +116,6 @@ const writePost = (folder, file) => {
  * @param {String} folder 
  */
 const generateStaticContent = folder => {
-  rm.sync(PUBLIC_PATH + '/' + folder)
   fs.readdir(__dirname + '/' + folder, '', (err, files) => {
     if (! fs.existsSync(__dirname + '/' + folder)) return
     files.forEach(file => {
@@ -159,15 +157,18 @@ const generateIndex = () => {
     content: indexContent
   }))
 
-  fs.writeFile('public/index.html', html, err => {
+  fs.writeFile(__dirname + '/public/index.html', html, err => {
     if (err) throw err;
-    console.log('public/index.html has been created.')
   })
 }
 
 /**
  * Start generating
  */
-generateIndex()
-generateStaticContent('posts')
-generateStaticContent('pages')
+fs.remove(__dirname + '/public', () => {
+  fs.mkdir(__dirname + '/public')
+  fs.copy(__dirname + '/static', __dirname + '/public/static')
+  generateIndex()
+  generateStaticContent('posts')
+  generateStaticContent('pages')
+})
