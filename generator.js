@@ -137,7 +137,9 @@ const generateIndex = () => {
 
   let indexContent = ''
   let posts = home.posts
-  for (let key in posts) {
+  
+  // Order posts by year
+  Object.keys(posts).reverse().forEach(key => {
     if (posts.hasOwnProperty(key)) {
       let year = posts[key]
       indexContent += '<div class="year"><h1>'+ key +'</h1>'
@@ -146,7 +148,7 @@ const generateIndex = () => {
       })
       indexContent += '</div>'
     }
-  }
+  })
 
   let html = mustache.render(layoutTemplate, getLayoutData({
     title: 'Home',
@@ -167,6 +169,7 @@ const generateIndex = () => {
  */
 fs.remove(__dirname + '/public', () => {
   fs.mkdir(__dirname + '/public')
+  // Copy static to public/static
   fs.copy(__dirname + '/static', __dirname + '/public/static')
   generateIndex()
   generateStaticContent('posts')
