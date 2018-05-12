@@ -55,6 +55,10 @@ a {
         margin-bottom: 5px;
         font-weight: 700;
         font-size: 1.5em;
+        a {
+            color: #fff;
+            border-bottom: none;
+        }
     }
 }
 
@@ -104,6 +108,10 @@ a {
 }
 
 .post {
+    &__header {
+        border-bottom: 1px solid $color--grey-light;
+        padding-bottom: 10px;
+    }
     &__title {
         font-weight: 700;
         font-size: 2em;
@@ -145,7 +153,7 @@ a {
         em {
             font-style: italic;
         }
-        p code {
+        code {
             background-color: $color--grey-light;
             font-weight: 700;
             padding: 0 5px;
@@ -154,6 +162,11 @@ a {
             margin: 1em 0;
             padding: 10px;
             border-radius: 5px;
+            code {
+                font-weight: normal;
+                padding: 0;
+                background-color: transparent;
+            }
         }
         ul, ol, h1, h2, h3 {
             margin-top: 1em;
