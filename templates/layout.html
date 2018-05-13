@@ -5,6 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Search Engine -->
+    <meta name="description" content="{{ social.desc }}">
+    <meta name="image" content="{{ social.image }}">
+    <!-- Schema.org for Google -->
+    <meta itemprop="name" content="{{ social.title }}">
+    <meta itemprop="description" content="{{ social.desc }}">
+    <meta itemprop="image" content="{{ social.image }}">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ social.title }}">
+    <meta name="twitter:description" content="{{ social.desc }}">
+    <meta name="twitter:image:src" content="{{ social.image }}">
+    <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+    <meta name="og:title" content="{{ social.title }}">
+    <meta name="og:description" content="{{ social.desc }}">
+    <meta name="og:image" content="{{ social.image }}">
+    <meta name="og:type" content="website">
+
     <title>{{ title }} - {{ site_title }}</title>
     <link rel="stylesheet" href="/css/theme.css">
     <link rel="stylesheet" href="/static/css/dracula.min.css">

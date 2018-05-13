@@ -2,6 +2,7 @@
 title: Contact
 published: 10-05-2018
 updated: 10-05-2018
+excerpt: Keep in touch with slog.
 ---
 You can find me at:
 

@@ -2,6 +2,7 @@
 title: About
 published: 10-05-2018
 updated: 10-05-2018
+excerpt: Why do I create this generator when the world has a lot of engine such as Hexo, Hugo, VuePress,...?
 ---
 # slog - a static site generator
 

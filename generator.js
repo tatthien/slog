@@ -91,7 +91,12 @@ const writePost = (folder, file) => {
         body: 'home',
         container: 'post'
       },
-      content: html
+      content: html,
+      social: {
+        title: post.data.title + ' - ' + config.site_title,
+        desc: post.data.excerpt,
+        image: post.data.image ? post.data.image : '/static/img/default-image.jpg'
+      }
     }))
 
     let folderName = PUBLIC_PATH + '/' + folder
@@ -156,7 +161,12 @@ const generateIndex = () => {
       body: 'home',
       container: 'post-list'
     },
-    content: indexContent
+    content: indexContent,
+    social: {
+      title: config.site_title,
+      desc: config.site_desc,
+      image: '/static/img/default-image.jpg'
+    }
   }))
 
   fs.writeFile(__dirname + '/public/index.html', html, err => {
