@@ -1,12 +1,16 @@
-# slog - a static site generator
+<h1 align="center">Slog</h1>
+<p align="center">A static site generator</p>
+<p align="center">
+  <a href="https://travis-ci.org/tatthien/slog"><img src="https://travis-ci.org/tatthien/slog.svg?branch=master" alt="Build Status" /></a>
+</p>
+
+## About
 
 Why do I create this generator when the world has a lot of engine such as Hexo, Hugo, VuePress,...?
 
 I've tried many of them, but it was a mess for me when trying to config and customize theme. So I decided to create an own generator to hold the full control.
 
 You can check-out the demo here: [https://slog.tatthien.com/](https://slog.tatthien.com/)
-
-## About the name
 
 The letter `s` stands for **Static** and **Simple**. I just want to create a simple static site generator for my blog. Of course, I don't wan to compete with the existences.
 
@@ -22,15 +26,13 @@ The letter `s` stands for **Static** and **Simple**. I just want to create a sim
 
 **Assets**
 
-```bash
-npm run asset:dev
-yarn asset:dev
-```
+Watching the file changes:
 
-```bash
-npm run asset:build
-yarn asset:build
-```
+`npm run asset:dev` or `yarn asset:dev`
+
+Building the css, javascript:
+
+`npm run asset:build` or `yarn asset:build`
 
 **Preview**
 
