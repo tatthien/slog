@@ -10,9 +10,9 @@ Why do I create this generator when the world has a lot of engine such as Hexo, 
 
 I've tried many of them, but it was a mess for me when trying to config and customize theme. So I decided to create an own generator to hold the full control.
 
-You can check-out the demo here: [https://slog.tatthien.com/](https://slog.tatthien.com/)
-
 The letter `s` stands for **Static** and **Simple**. I just want to create a simple static site generator for my blog. Of course, I don't wan to compete with the existences.
+
+You can check-out the demo here: [https://slog.tatthien.com/](https://slog.tatthien.com/)
 
 ## Usage
 
