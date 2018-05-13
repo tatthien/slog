@@ -17,9 +17,10 @@ body {
 
 a {
     color: $color--primary;
-    border-bottom: 1px solid $color--primary;
-    padding-bottom: 1px;
     text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 .container {
@@ -38,9 +39,9 @@ a {
 
 /** SITE HEADER **/
 .site-header {
-    padding: 40px;
+    padding: 15px 0;
     margin-bottom: 20px;
-    background-color: $color--dark;
+    background-color: $color--primary;
     color: #fff;
     @media screen and (max-width: 800px){
         padding-left: 0;
@@ -51,15 +52,6 @@ a {
         justify-content: space-between;
         align-items: center;
     }
-    .site-name {
-        margin-bottom: 5px;
-        font-weight: 700;
-        font-size: 1.5em;
-        a {
-            color: #fff;
-            border-bottom: none;
-        }
-    }
 }
 
 /** SITE FOOTER **/
@@ -68,12 +60,36 @@ a {
     color: $color--grey;
 }
 
+/* LOGO */
+#logo {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    &:hover {
+        text-decoration: none;
+    }
+    img {
+        height: 40px;
+        width: auto;
+        margin-right: 10px;
+    }
+    .site-name {
+        font-weight: 700;
+        font-size: 1.5em;
+        line-height: 1;
+    }
+    .site-description {
+        font-size: 14px;
+    }
+}
+
+/** MAIN NAVIGATION **/
 #main-nav {
     a {
         margin-left: 10px;
-        color: #fff;
         opacity: .8;
         border-bottom: none;
+        color: #fff;
         &:hover {
             opacity: 1;
         }
@@ -88,7 +104,7 @@ a {
         }
         h1 {
             font-weight: 700;
-            font-size: 1.5em;
+            font-size: 1.2em;
             margin-bottom: 10px;
         }
         p {

@@ -8,17 +8,22 @@
     <title>{{ title }} - {{ site_title }}</title>
     <link rel="stylesheet" href="/css/theme.css">
     <link rel="stylesheet" href="/static/css/dracula.min.css">
-    <link rel="shortcut icon" href="/static/img/logo.png" type="image/png">
+    <link rel="shortcut icon" href="/static/img/favicon.png" type="image/png">
 </head>
 
 <body class="{{ class.body }}">
     <div class="wrap">
         <header class="site-header">
             <div class="container">
-                <div id="logo">
-                    <h2 class="site-name"><a href="/">{{ site_title }}</a></h2>
-                    <p class="site-description">{{ site_desc }}</p>
-                </div>
+                <a href="/" id="logo">
+                    <div class="left">
+                        <img src="/static/img/logo.png" alt="{{ site_title }}">
+                    </div>
+                    <div class="right">
+                        <h2 class="site-name">{{ site_title }}</h2>
+                        <p class="site-description">{{ site_desc }}</p>
+                    </div>
+                </a>
                 <div id="main-nav">
                     <nav>
                         <a href="/">Home</a>
@@ -29,8 +34,10 @@
                 </div>
             </div>
         </header>
-        <div class="container primary {{ class.container }}">
-            {{{ content }}}
+        <div class="primary {{ class.container }}">
+            <div class="container">
+                {{{ content }}}
+            </div>
         </div>
         <footer class="site-footer">
             <div class="container">
