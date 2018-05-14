@@ -3,6 +3,7 @@
 <p align="center">
   <a href="https://travis-ci.org/tatthien/slog"><img src="https://travis-ci.org/tatthien/slog.svg?branch=master" alt="Build Status" /></a>
 </p>
+<p align="center"><img src="https://slog.tatthien.com/static/img/default-image.jpg" style="width:100%; height: auto;"/></p>
 
 ## About
 
